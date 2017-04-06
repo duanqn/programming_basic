@@ -1,0 +1,53 @@
+1.
+计算本息
+如果本金是b，利率是r，存x年
+本息合计应是 b*((1+r)^x)
+这里^表示乘方
+2.
+最大公因数
+你的程序应该大致遵循这个框架：
+	#include ...
+	int gcd(int x, int y){
+		...
+	}
+	int main(){
+		int a, b;
+		scanf ...
+		printf("%d\n", gcd(a, b));
+		return 0;
+	}
+*注意：如果把gcd写在main函数之后，则在main中需要声明函数gcd才能调用它，具体方法请自行学习
+3.
+字典排序
+存储字符串可以用一个字符数组
+那么存储n个字符串需要n个数组，即你需要一个数组的数组————二维数组
+可尝试以下代码用来读入字符串
+	#define MAXN 100
+	#define MAXLEN 30
+	#include <stdio.h>
+	#include <string.h>
+	int main(){
+		char strings[MAXN][MAXLEN + 1];
+		int number_of_string;
+		scanf("%d", &number_of_string);
+		memset(strings, 0, sizeof(strings));
+		for(int i = 0; i < number_of_string; ++i){
+			scanf("%s", strings[i]);
+		}
+		/* this is a selection sort and you need to rewrite it
+		char temp[MAXLEN + 1];
+		for(int i = 0; i < number_of_string - 1; ++i){
+			for(int j = i+1; j < number_of_string; ++j){
+				if(strcmp(strings[i], strings[j]) > 0){
+					memset(temp, 0, sizeof(temp));
+					strcpy(temp, strings[i]);
+					strcpy(strings[i], strings[j]);
+					strcpy(strings[j], temp);
+				}
+			}
+		}
+		*/
+		for(int i = 0; i < number_of_string; ++i){
+			printf("%s\n", strings[i]);
+		}
+	}
